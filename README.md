@@ -1,8 +1,8 @@
 <img src="Frontend/public/project_photo.jpg" alt="JobHub">
 
-# jobHub: AI-Powered Job Board and Search Engine 🚀
+# About JobHub
 
-jobHub is an AI-powered platform designed to revolutionize the job search and recruitment process. It leverages Machine Learning (Random Forest) to recommend job posts to seekers and rank candidate applications for HR managers. Built with **React.js, Node.js, Express.js, PostgreSQL (Prisma), Flask (Python), and Supabase**, jobHub streamlines hiring workflows and enhances user engagement.
+JobHub is an AI-powered platform designed to revolutionize the job search and recruitment process. It leverages Machine Learning (Random Forest) to recommend job posts to seekers and rank candidate applications for HR managers. Built with **React.js, Node.js, Express.js, PostgreSQL (Prisma), Flask (Python), and Supabase**, JobHub streamlines hiring workflows and enhances user engagement.
 
 ---
 
@@ -40,11 +40,11 @@ jobHub is an AI-powered platform designed to revolutionize the job search and re
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/taif-kh/jobHub/
+   git clone https://github.com/taif-kh/JobHub/
    ```
 2. Install dependencies for the frontend and backend:
    ```bash
-    cd jobHub/frontend
+    cd JobHub/frontend
     npm install
     cd ../backend
     npm install
@@ -90,7 +90,7 @@ jobHub is an AI-powered platform designed to revolutionize the job search and re
 ## 📂 Project Structure
 
 ```bash
-jobHub/
+JobHub/
 ├── frontend/            # React.js frontend
 ├── backend/             # Node.js, Express.js, and Flask backend (AI integration)
 │   ├── app.py           # Flask server for AI integration
@@ -102,12 +102,12 @@ jobHub/
 
 ## 📄 **License**
 
-This project is licensed under the **MIT License**. For more details, see [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT).
+This project is licensed under the **MIT License**. For more details, see <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">https://opensource.org/licenses/MIT</a>.
 
 ## 🙏 Acknowledgments
 
-- <a href="https://supabase.com/" target="_blank">Supabase</a> for secure resume storage.
-- <a href="https://scikit-learn.org/stable/" target="_blank">scikit-learn</a> for the Random Forest model.
+- <a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a> for secure resume storage.
+- <a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener">scikit-learn</a> for the Random Forest model.
 - The MERN Stack community for endless resources and support.
 
-Made with ❤️ by Taif Khaskhoussi. Let's connect on <a href="https://www.linkedin.com/in/taif-khaskhoussi/" target="_blank">LinkedIn</a>!
+Made with ❤️ by Taif Khaskhoussi. Let's connect on <a href="https://www.linkedin.com/in/taif-khaskhoussi/" target="_blank" rel="noopener">LinkedIn</a>!
