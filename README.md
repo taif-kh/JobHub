@@ -1,4 +1,4 @@
-<img src="public/project_photo.jpg" alt="JobHub">
+<img src="Frontend/public/project_photo.jpg" alt="JobHub">
 
 # jobHub: AI-Powered Job Board and Search Engine 🚀
 
