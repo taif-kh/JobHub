@@ -1,0 +1,35 @@
+{
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "@quixo3/prisma-session-store": "^3.1.13",
+    "@supabase/supabase-js": "^2.46.1",
+    "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "form-data": "^4.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "pg": "^8.13.1",
+    "uuid": "^11.0.3"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "prisma": "^5.22.0"
+  }
+}

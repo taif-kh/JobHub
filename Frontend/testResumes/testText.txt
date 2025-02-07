@@ -1,0 +1,46 @@
+Mark Renton
+
+1-month internship in web development
+ Tunis, Tunisia
+Ô 19202122
+
+ mark.renton@outlook.com
+° linkedin.com/in/mark-renton
+Skills
+• Languages: HTML/CSS, Javascript, SQL
+• Frameworks: Express.js, TailwindCSS
+• Libraries: ReactJS
+• Tools: Figma, Git, Node.js, VSCode, Jest, Postman, PostgreSQL, MongoDB, Github
+Experience
+MR Technologies
+Tunis, Tunisia
+Javascript Developer - End-of-studies internship
+February 2023 – May 2023
+• Developed a web application for internships, job oﬀers, and training courses management using Javascript.
+• Created components for user dashboards, job and internship listings, and user proﬁles.
+• Enhanced the ability to manage and apply for internships, job oﬀers, and training courses.
+• Set up server infrastructure and database schemas.
+- Technologies: HTML/CSS, Javascript, ReactJS, Git, Node.js, Express.js, PostgreSQL, TailwindCSS, Scrum.
+Education
+• MR University
+Tunis, Tunisia
+National diploma in computer science engineering
+September 2023 – Present
+• MR College
+Tunis, Tunisia
+Applied license in computer technology
+September 2020 - June 2023
+- Courses: HTML/CSS, Javascript, Responsive Web Design, Scrum.
+• High School of MR
+Tunis, Tunisia
+High school degree with technical specialization
+July 2019
+Academic projects
+• Web application for language learning
+- Technologies: HTML/CSS, Javascript, ReactJS, Figma, Git, Node.js, MongoDB, Shadcn/ui, Scrum.
+Certiﬁcations
+• FreeCodeCamp Back End Development and APIs (Ongoing)
+Interests
+• Art
+• Music
+• Graphic design

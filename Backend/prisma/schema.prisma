@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id          String   @id @default(uuid())
+  sid         String   @unique
+  data        String
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Users {
+  id Int @id @default(autoincrement())
+  username String @unique
+  email String @unique
+  password String 
+  isHr Boolean @default(false)
+  resumeLink String?
+  recJob String?
+  predField String?
+  physicAdd String?
+  linkedin String?
+  glassDoor String?
+  contactEmail String?
+  phoneNumber String?
+  fullName String?
+  apps JobsApps[]
+  jobsPosted  Jobs[]    @relation("UserJobs")
+}
+
+model Jobs {
+  id Int @id @default(autoincrement())
+  name String?
+  description String?
+  createdAt DateTime @default(now())
+  postedBy Int?
+  poster     Users?   @relation("UserJobs", fields: [postedBy], references: [id])
+  candidates JobsApps[]
+  keywords String?
+  company String?
+}
+
+model JobsApps {
+  id          Int      @id @default(autoincrement())
+  job Jobs @relation(fields: [jobId], references: [id])
+  jobId Int
+  candidate Users @relation(fields: [userId], references: [id])
+  userId Int
+  createdAt DateTime @default(now())
+  score String?
+}

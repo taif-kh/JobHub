@@ -1,0 +1,27 @@
+* {
+    font: normal;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 36px;
+}
+
+h4 {
+    font-size: 32px;
+}
+
+h5 {
+    font-size: 24px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
+p, button {
+    font-size: 12px;
+}

@@ -1,0 +1,89 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Prisma
+/prisma/migrations/
+/prisma/.env
+
+# Supabase
+.supabase/
+
+# Build artifacts
+/dist/
+/build/
+/public/build/ # For Create React App or Vite
+/.next/ # (Optional, if using Next.js)
+
+# React specific
+.eslintcache
+*.css.map
+*.js.map
+*.jsx.map
+*.ts.map
+*.tsx.map
+
+# IDE/Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+logs/
+*.log
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Debug
+debug/
+*.pid
+*.seed
+*.pid.lock
+
+# Misc
+*.pyc
+*.class
+*.dll
+*.so
+*.dylib
+*.out
+*.exe
+*.app
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.7z
