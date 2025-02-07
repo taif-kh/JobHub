@@ -1,6 +1,8 @@
-# Jobhub: AI-Powered Job Board and Search Engine 🚀
+<img src="public/project_photo.jpg" alt="JobHub">
 
-Jobhub is an AI-powered platform designed to revolutionize the job search and recruitment process. It leverages Machine Learning (Random Forest) to recommend job posts to seekers and rank candidate applications for HR managers. Built with the PERN Stack and Flask, Jobhub streamlines hiring workflows and enhances user engagement.
+# jobHub: AI-Powered Job Board and Search Engine 🚀
+
+jobHub is an AI-powered platform designed to revolutionize the job search and recruitment process. It leverages Machine Learning (Random Forest) to recommend job posts to seekers and rank candidate applications for HR managers. Built with **React.js, Node.js, Express.js, PostgreSQL (Prisma), Flask (Python), and Supabase**, jobHub streamlines hiring workflows and enhances user engagement.
 
 ---
 
@@ -22,7 +24,8 @@ Jobhub is an AI-powered platform designed to revolutionize the job search and re
 
 - **Frontend:** React.js, Tailwind CSS
 - **Backend:** Node.js, Express.js, Flask (Python for AI integration)
-- **Database:** PostgreSQL (Prisma), Supabase (for resume storage)
+- **Database:** PostgreSQL (Prisma)
+- **File Storage:** Supabase (for resume storage)
 - **AI/ML Integration:** Random Forest Model (Python/Flask)
 - **Other Tools:** Git, Postman, Jupyter Notebook (for ML model development)
 
@@ -37,11 +40,11 @@ Jobhub is an AI-powered platform designed to revolutionize the job search and re
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/example/
+   git clone https://github.com/taif-kh/jobHub/
    ```
 2. Install dependencies for the frontend and backend:
    ```bash
-    cd jobhub/frontend
+    cd jobHub/frontend
     npm install
     cd ../backend
     npm install
@@ -87,7 +90,7 @@ Jobhub is an AI-powered platform designed to revolutionize the job search and re
 ## 📂 Project Structure
 
 ```bash
-jobhub/
+jobHub/
 ├── frontend/            # React.js frontend
 ├── backend/             # Node.js, Express.js, and Flask backend (AI integration)
 │   ├── app.py           # Flask server for AI integration
@@ -103,8 +106,8 @@ This project is licensed under the **MIT License**. For more details, see [https
 
 ## 🙏 Acknowledgments
 
-- <a href="https://supabase.com/">Supabase</a> for secure resume storage.
-- <a href="https://scikit-learn.org/stable/">scikit-learn</a> for the Random Forest model.
+- <a href="https://supabase.com/" target="_blank">Supabase</a> for secure resume storage.
+- <a href="https://scikit-learn.org/stable/" target="_blank">scikit-learn</a> for the Random Forest model.
 - The MERN Stack community for endless resources and support.
 
-Made with ❤️ by Taif Khaskhoussi. Let's connect on <a href="https://www.linkedin.com/in/taif-khaskhoussi/">LinkedIn</a>!
+Made with ❤️ by Taif Khaskhoussi. Let's connect on <a href="https://www.linkedin.com/in/taif-khaskhoussi/" target="_blank">LinkedIn</a>!
