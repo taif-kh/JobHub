@@ -1,0 +1,12 @@
+# Ignore Jupyter Notebooks for language detection
+*.ipynb linguist-vendored
+*.ipynb linguist-documentation
+
+# Mark JavaScript/TypeScript as primary
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+
+# Mark Python as secondary
+*.py linguist-language=Python
