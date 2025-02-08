@@ -1,4 +1,5 @@
 <img src="Frontend/public/project_photo.jpg" alt="JobHub">
+<br />
 
 # About JobHub
 
