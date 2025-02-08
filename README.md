@@ -1,4 +1,4 @@
-<img src="frontend/public/project_photo.jpg" alt="JobHub">
+<img src="Frontend/public/project_photo.jpg" alt="JobHub">
 
 # About JobHub
 
@@ -42,11 +42,11 @@ JobHub is an AI-powered platform designed to revolutionize the job search and re
    ```bash
    git clone https://github.com/taif-kh/JobHub.git
    ```
-2. Install dependencies for the frontend and backend:
+2. Install dependencies for the Frontend and Backend:
    ```bash
-    cd JobHub/frontend
+    cd JobHub/Frontend
     npm install
-    cd ../backend
+    cd ../Backend
     npm install
    ```
 3. Set up Prisma:
@@ -84,9 +84,9 @@ JobHub is an AI-powered platform designed to revolutionize the job search and re
     # Start the Flask AI server
     python app.py
 
-    # Start the backend and frontend
+    # Start the Backend and Frontend
     node --watch app.js
-    cd ../frontend
+    cd ../Frontend
     npm run dev
    ```
 
@@ -94,13 +94,13 @@ JobHub is an AI-powered platform designed to revolutionize the job search and re
 
 ```bash
 JobHub/
-├── frontend/            # React.js frontend
+├── Frontend/            # React.js Frontend
 │   ├── src/
 │   │   ├── components/ # React components
 │   │   └── App.jsx     # Main application file
 │   ├── public/         # Static assets
 │   └── package.json    # Frontend dependencies
-├── backend/            # Node.js, Express.js, and Flask backend (AI integration)
+├── Backend/            # Node.js, Express.js, and Flask Backend (AI integration)
 │   ├── models/         # Machine Learning models (Random Forest)
 │   ├── modelsTraining/ # Model training files
 │   ├── prisma/         # Prisma schema and migrations
