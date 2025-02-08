@@ -77,7 +77,7 @@ JobHub is an AI-powered platform designed to revolutionize the job search and re
  Add your Supabase URL and API key.
 6. Set up the Flask server for AI integration:
    ```bash
-    # Start the MERN Stack backend and frontend
+    # Start the backend and frontend
     cd ../frontend
     npm run dev
     cd ../backend
@@ -108,6 +108,6 @@ This project is licensed under the **MIT License**. For more details, see <a hre
 
 - <a href="https://supabase.com/" target="_blank" rel="noopener">Supabase</a> for secure resume storage.
 - <a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener">scikit-learn</a> for the Random Forest model.
-- The MERN Stack community for endless resources and support.
+- The web development community for endless resources and support.
 
 Made with ❤️ by Taif Khaskhoussi. Let's connect on <a href="https://www.linkedin.com/in/taif-khaskhoussi/" target="_blank" rel="noopener">LinkedIn</a>!
