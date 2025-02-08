@@ -1,4 +1,4 @@
-<img src="Frontend/public/project_photo.jpg" alt="JobHub">
+<img src="frontend/public/project_photo.jpg" alt="JobHub">
 
 # About JobHub
 
@@ -40,7 +40,7 @@ JobHub is an AI-powered platform designed to revolutionize the job search and re
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/taif-kh/JobHub/
+   git clone https://github.com/taif-kh/JobHub.git
    ```
 2. Install dependencies for the frontend and backend:
    ```bash
@@ -61,7 +61,11 @@ JobHub is an AI-powered platform designed to revolutionize the job search and re
     ```bash
     npx prisma generate
     ```
+- Apply database migrations:
 
+    ```bash
+    npx prisma migrate dev --name init
+    ```
 4. Set up the Flask server for AI integration:
    ```bash
     pip install -r requirements.txt
@@ -73,18 +77,17 @@ JobHub is an AI-powered platform designed to revolutionize the job search and re
     cp .env.example .env
     ```
 - Open .env and fill in the required values:
- Replace [user], [password], [neon_hostname], and [dbname] in DATABASE_URL with your PostgreSQL credentials.
+ Replace [user], [password], [hostname], and [dbname] in DATABASE_URL with your PostgreSQL credentials.
  Add your Supabase URL and API key.
 6. Set up the Flask server for AI integration:
    ```bash
-    # Start the backend and frontend
-    cd ../frontend
-    npm run dev
-    cd ../backend
-    node --watch app.js
-
     # Start the Flask AI server
     python app.py
+
+    # Start the backend and frontend
+    node --watch app.js
+    cd ../frontend
+    npm run dev
    ```
 
 ## 📂 Project Structure
@@ -92,12 +95,22 @@ JobHub is an AI-powered platform designed to revolutionize the job search and re
 ```bash
 JobHub/
 ├── frontend/            # React.js frontend
-├── backend/             # Node.js, Express.js, and Flask backend (AI integration)
+│   ├── src/
+│   │   ├── components/ # React components
+│   │   └── App.jsx     # Main application file
+│   ├── public/         # Static assets
+│   └── package.json    # Frontend dependencies
+├── backend/            # Node.js, Express.js, and Flask backend (AI integration)
+│   ├── models/         # Machine Learning models (Random Forest)
+│   ├── modelsTraining/ # Model training files
+│   ├── prisma/         # Prisma schema and migrations
+│   ├── routes/         # API endpoints
 │   ├── app.py           # Flask server for AI integration
-│   ├── models/          # Machine Learning model (Random Forest)
-│   └── app.js           # Node.js server
-├── README.md            # Project documentation
-└── .env.example         # Environment variables template
+│   ├── .env.example     # Environment variables template
+│   ├── app.js           # Node.js server
+│   └── package.json    # Backend dependencies
+└── README.md            # Project documentation
+
 ```
 
 ## 📄 **License**
