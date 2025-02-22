@@ -20,7 +20,7 @@ const First = () => {
                         <div className='flex items-center gap-x-2 '>
                             <button className=''><Link to="/login">Log-in</Link></button>
                             <div className='w-[8px] h-full '></div>
-                            <button className='w-[100px] h-[36px] bg-[#1F2232] text-[#F6FAFD] rounded-md '><Link to="/signup">Sign up</Link></button>
+                            <Link className='w-[100px] h-[36px] bg-[#1F2232] text-[#F6FAFD] rounded-md text-[12px] flex items-center justify-center' to="/signup">Sign up</Link>
                              </div>
 
                     </div>
