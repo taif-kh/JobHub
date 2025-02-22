@@ -3,7 +3,24 @@
 
 # About JobHub
 
-JobHub is an AI-powered platform designed to revolutionize the job search and recruitment process. It leverages Machine Learning (Random Forest) to recommend job posts to seekers and rank candidate applications for HR managers. Built with **React.js, Node.js, Express.js, PostgreSQL (Prisma), Flask (Python), and Supabase**, JobHub streamlines hiring workflows and enhances user engagement.
+JobHub is an AI-powered Full Stack platform designed to revolutionize the job search and recruitment process. It leverages Machine Learning (Random Forest) to recommend job posts to seekers and rank candidate applications for HR managers. Built with **React.js, Node.js, Express.js, PostgreSQL (Prisma), Flask (Python), and Supabase**, JobHub streamlines hiring workflows and enhances user engagement.
+
+<br />
+
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=react" height="60" alt="react logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=tailwind" height="60" alt="tailwindcss logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=express" height="60" alt="express logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=nodejs" height="60" alt="nodejs logo"  />
+  <img width="12" />
+   <img src="https://skillicons.dev/icons?i=flask" height="60" alt="flask logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=postgres" height="60" alt="postgresql logo"  />
+</div>
+
 
 ---
 
