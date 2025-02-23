@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-
 import { motion } from 'framer-motion';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
   const [selectedButton, setSelectedButton] = useState(null);
   const navigate = useNavigate();
+
+  const notify = () => {
+    toast.success("Success!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeButton: false,
+      className: 'bg-black text-white'
+    });
+  };
 
   async function signupSubmit(e) {
     e.preventDefault();
@@ -17,12 +28,13 @@ const Signup = () => {
     axios.post('http://localhost:3000/sign-up', data)
       .then((response) => {
         console.log(response.data);
+        notify(); // Call notify on successful response
       })
       .catch((error) => {
         console.error('There was an error submitting the form!', error);
       });
 
-    navigate("/");
+    // navigate("/");
   }
 
   async function submitHR(e) {
@@ -34,20 +46,17 @@ const Signup = () => {
     axios.post('http://localhost:3000/sign-up-hr', data)
       .then((response) => {
         console.log(response.data);
+        notify(); 
       })
       .catch((error) => {
         console.error('There was an error submitting the form!', error);
       });
 
-    navigate("/");
+    // navigate("/");
   }
 
   return (
-    <html>
-      <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body className='w-screen h-screen bg-white text-black font-inter px-[160px] py-[24px] overflow-x-hidden'>
+    <div className='w-screen h-screen bg-white text-black font-inter px-[160px] py-[24px] overflow-x-hidden'>
       <div className='w-full h-full'>
         <h3 className='font-bold'><Link to="/">JobHub</Link></h3>
         <div className='h-14 w-full'></div>
@@ -95,7 +104,10 @@ const Signup = () => {
                 </div>
                 <div className='h-8 w-full'></div>
                 <button type="submit" className='h-9 w-96 bg-[#0074E8] text-white'><h5>Submit</h5></button>
-              </form>
+                <ToastContainer
+          toastStyle={{ backgroundColor: '#0B1016', color: 'white' }} // Set the background color of individual toasts
+        />
+        </form>
             </div>
           </div>
         ) : selectedButton === "employer" ? (
@@ -159,9 +171,7 @@ const Signup = () => {
         ) : null}
         {/* Sign up as candidate */}
       </div>
-    </body>
-    </html>
-
+    </div>
   );
 };
 
