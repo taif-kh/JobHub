@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { UserContext } from './UserContext';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const { user, addToken } = useContext(UserContext);
   const navigate = useNavigate();
-  const [loginMsg, setLoginMsg] = useState("");
+
 
   const LoginSubmit = async (e) => {
     e.preventDefault();
@@ -17,17 +17,15 @@ const Login = () => {
     const dataJson = JSON.stringify(dataEntries);
 
     await addToken(dataJson);
-    console.log("updatedUser", user.id);
   };
 
   useEffect(() => {
-    if (user?.id) {
-      if (Number(user.id) === 6) {
+      if (user?.isHr == true) {
         navigate("/hr");
-      } else {
-        navigate("/candidate");
-      }
-    }
+      } else if (user?.isHr == false) {
+          navigate("/candidate");
+        }      
+    
   }, [user, navigate]);
 
   return (
@@ -50,7 +48,7 @@ const Login = () => {
               <div className='h-4 w-full'></div>
               <div className='flex flex-col'>
                 <label>Password</label>
-                <input type="text" name="password" className='rounded-lg border-2 border-black border-opacity-50 h-9 w-96 p-2' />
+                <input type="password" name="password" className='rounded-lg border-2 border-black border-opacity-50 h-9 w-96 p-2' />
               </div>
               <div className='w-full h-8'></div>
               <button type="submit" className='h-9 w-96 bg-[#0074E8] text-white'><h5>Submit</h5></button>

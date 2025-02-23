@@ -53,7 +53,7 @@ const Signup = () => {
         <div className='h-14 w-full'></div>
         <div className={`w-full flex justify-center gap-x-44 ${selectedButton !== null ? 'items-start h-32 ' : 'items-center h-40'}`}>
           <motion.button
-            className={`w-60 rounded-lg flex items-end pb-4 pl-5 ${selectedButton == "jobSeeker" ? 'bg-[#0074E8] ' : selectedButton == "employer" ? 'bg-black  ' : ' bg-black h-full pb-8'}`}
+            className={`w-60 rounded-lg flex items-end pb-4 pl-5 ${selectedButton == "jobSeeker" ? 'bg-[#0074E8] ' : selectedButton == "employer" ? 'bg-[#0B1016]  ' : ' bg-[#0B1016] h-full pb-8'}`}
             onClick={() => setSelectedButton("jobSeeker")}
             animate={{ height: selectedButton == "employer" ||  selectedButton == "jobSeeker" ?  '4rem' : '100%' }}
             transition={{ duration: 0.75 }}
@@ -61,7 +61,7 @@ const Signup = () => {
             <p className='underline text-white text-base'>I’m looking for a job</p>
           </motion.button>
           <motion.button
-            className={`w-60 h-full rounded-lg flex items-end pb-4 pl-5 ${selectedButton == "employer" ? 'bg-[#0074E8] ' : selectedButton == "jobSeeker" ? 'bg-black  ' : ' bg-black h-full pb-8'}`}
+            className={`w-60 h-full rounded-lg flex items-end pb-4 pl-5 ${selectedButton == "employer" ? 'bg-[#0074E8] ' : selectedButton == "jobSeeker" ? 'bg-[#0B1016]  ' : ' bg-[#0B1016] h-full pb-8'}`}
             onClick={() => setSelectedButton("employer")}
             animate={{ height: selectedButton == "employer" ||  selectedButton == "jobSeeker" ?  '4rem' : '100%' }}
             transition={{ duration: 0.75 }}
@@ -122,7 +122,7 @@ const Signup = () => {
                 </div>
                 <div className='h-8 w-full'></div>
 
-                <div className='bg-black text-white w-screen flex flex-col justify-center items-center rounded-md'>
+                <div className='bg-[#0B1016] text-[#E7EAEF] w-screen flex flex-col justify-center items-center rounded-md'>
                   <div className='w-full h-8'></div>
                   <div className='flex w-full flex-col items-center '>
                     <h3 className=''>Company details</h3>

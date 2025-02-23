@@ -176,12 +176,13 @@ app.post("/log-in", async (req, res, next) => {
       const payload = { id: user.id, email: user.email };
       const token = jwt.sign(payload, jwtSecret, { expiresIn: '1h' });
 
-      // Include user details in the response
+      // included stuff in response
       res.json({
         token,
         id: user.id,
         email: user.email,
-        username: user.username, // Add other necessary fields
+        username: user.username, 
+        isHr: user.isHr,
       });
     });
   })(req, res, next);

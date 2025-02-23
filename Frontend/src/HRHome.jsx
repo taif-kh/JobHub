@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import "../src/App.css";
 import { UserContext } from './UserContext';
-import Typewriter from "typewriter-effect";
+// import Typewriter from "typewriter-effect";
 
 
 
@@ -15,12 +15,12 @@ const HRHome = () => {
   const navigate = useNavigate();
   const [jobKeywords, setJobKeywords] = useState(["HTML", "CSS", "JavaScript"]);
   //-------------------
-  const [jobDescription, setJobDescription] = useState(""); // Description du job
-  const [matchingScores, setMatchingScores] = useState([]); // Liste des scores de matching
-	const [error, setError] = useState(""); // Gestion des erreurs
-	const [loading, setLoading] = useState(false); // État de chargement
-  const [extractedSkills, setExtractedSkills] = useState(""); // État pour afficher les compétences extraites
-	const [selectedSkill, setSelectedSkill] = useState(""); // État pour la compétence sélectionnée dans la liste déroulante
+  const [jobDescription, setJobDescription] = useState(""); 
+  const [matchingScores, setMatchingScores] = useState([]); 
+	const [error, setError] = useState(""); 
+	const [loading, setLoading] = useState(false); 
+  const [extractedSkills, setExtractedSkills] = useState(""); 
+	const [selectedSkill, setSelectedSkill] = useState(""); 
   //-------------------
 
 
@@ -123,7 +123,7 @@ useEffect(() => {
 
 
 
-    	// Liste de compétences prédéfinies
+    	// predefined skills
 	const predefinedSkills = [
 		"JavaScript",
 		"React",
@@ -157,10 +157,10 @@ useEffect(() => {
             setExtractedSkills(skillsString);
             setError(""); // Reset error
           } else {
-            setError(result.error); // Handle API errors
+            setError(result.error); 
           }
         } catch (err) {
-          setError("Erreur de connexion avec le serveur Flask."); // Connection error
+          setError("Erreur de connexion avec le serveur Flask."); 
         }
       }
     }, 500); // Delay for 500ms

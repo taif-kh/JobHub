@@ -25,9 +25,13 @@ const Home = () => {
 
 console.log(user);
 
+const [loading, setLoading] = useState(true);
+
     // --------------------------------------------------------
 
-
+setTimeout(() => {
+  setLoading(false);
+}, 300);
 
 
   const handleFileChange = (e) => {
@@ -121,7 +125,8 @@ console.log(user);
   
   return (
     <html lang="en">
-      <body className="border-white border-2 flex flex-col px-40 font-inter bg-[#F6FAFD] text-[#1F2232] ">
+{ !loading && (
+        <body className="border-white border-2 flex flex-col px-40 font-inter bg-[#F6FAFD] text-[#1F2232] ">
         {user && (
           // USER EXISTS
           <div className="bg-[#F6FAFD] text-black">
@@ -346,6 +351,7 @@ Error
             </div>
             }
       </body>
+)}
     </html>
   );
   
