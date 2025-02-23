@@ -27,6 +27,8 @@ console.log(user);
 
 const [loading, setLoading] = useState(true);
 
+const [formLoading, setFormLoading] = useState(false);
+
     // --------------------------------------------------------
 
 setTimeout(() => {
@@ -41,7 +43,11 @@ setTimeout(() => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setFormLoading(true);
+
   
+
     if (!selectedFile) {
       setUploadMessage('Please select a file to upload.');
       return;
@@ -72,6 +78,9 @@ setTimeout(() => {
       console.error('Error uploading file:', error);
       setUploadMessage('Error uploading file. Please try again.');
     }
+
+    await new Promise ((resolve) => setTimeout(resolve, 4000) );
+    setFormLoading(false);
   };
   
   
@@ -125,7 +134,14 @@ setTimeout(() => {
   
   return (
     <html lang="en">
-{ !loading && (
+      {
+        formLoading && (
+          <div className='w-screen h-screen flex items-center justify-center bg-[#F6FAFD]'>
+            <img src='/spinner.svg' alt='loading spinner'/>
+          </div>
+        )
+      }
+{ !loading && !formLoading && (
         <body className="border-white border-2 flex flex-col px-40 font-inter bg-[#F6FAFD] text-[#1F2232] ">
         {user && (
           // USER EXISTS
@@ -248,7 +264,7 @@ setTimeout(() => {
 
 {/* Resume upload */}
 <div className='bg-[#0B1016] text-[#E7EAEF] pt-3 pl-3 '>
-<button className='flex items-end' onClick={()=>setVisibleForm(!visibleForm)}><h2 className=" self-start font-bold">Upload resume</h2>
+<button className='flex items-end' onClick={()=>setVisibleForm(!visibleForm)}><h2 className=" self-start font-bold ml-2">{selectedFile || currentUser.resumeLink ? "Change" : "Add"} resume</h2>
 </button>
 <div className='h-6 w-full '></div>
 </div>
@@ -258,14 +274,28 @@ setTimeout(() => {
       <div className='h-1 w-full '></div>
 
 
-    <label
+{!selectedFile && (    <label
     htmlFor='uploadResume'
     className='cursor-pointer w-[280px] h-12  flex items-center justify-center  bg-[#ECE4DB] text-[#0B1016] rounded-md'
     >
-    <h5>  {selectedFile || currentUser.resumeLink ? "Change" : "Upload"} resume</h5>
+    <h5>  Upload resume</h5>
     </label>
+  )}
     <div className='w-1 h-2'></div>
-    {selectedFile && <button type="submit" className='w-[280px] h-12 border-2 bg-blue-500 border-black text-white'><h5>Upload</h5></button> }
+    {selectedFile && 
+    (
+<div className='flex flex-col gap-y-1'>
+<label
+    htmlFor='uploadResume'
+    className='cursor-pointer w-[280px] h-12  flex items-center justify-center  bg-[#ECE4DB] text-[#0B1016] rounded-md'
+    >
+    <h5>  Change resume</h5>
+    </label>
+    
+    <button type="submit" className='w-[280px] h-12 border-2 bg-blue-500 border-black text-white rounded-md'><h5>Submit</h5></button> 
+</div>
+    )
+    }
                       <input id="uploadResume" type="file" name="resumeLink" onChange={handleFileChange} className='hidden'/>
                       <input type='hidden' value={user.id} name="userId" />
     

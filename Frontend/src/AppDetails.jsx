@@ -141,7 +141,7 @@ const AppDetails = () => {
 
 
     return (
-        <body className="border-white border-2 flex flex-col px-40 font-inter bg-[#ECE4DB] overflow-hidden">
+        <body className="border-white border-2 flex flex-col px-40 font-inter bg-[#ECE4DB] overflow-hidden min-w-screen min-h-screen">
           <div className="bg-[#ECE4DB] text-black ">
                     {/* token */}
             <div className='text-xs h-9'>
