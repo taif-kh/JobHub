@@ -312,7 +312,7 @@ setTimeout(() => {
       <h2 className='font-bold text-[#0B1016]'>Latest jobs </h2>
       <div className='h-6 w-full  '></div>
       {/* Post */}
-{jobs.map(job => (
+{jobs.slice(0, 5).map(job => (
   <div  key={job.id} className=''>
   <div className='h-32 w-full flex items-center  justify-between px-10  bg-[#ECE4DB] rounded-md text-[#0B1016] ' >
   {/* First part */}

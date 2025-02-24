@@ -307,7 +307,7 @@ useEffect(() => {
 
 {/* All posts */}
 {
-  myJobs.length > 0 && myJobs.map((job, i) => (
+  myJobs.length > 0 && myJobs.slice(0, 5).map((job, i) => (
     <div key={i} className="cursor-pointer" onClick={() => navigate(`/${job.id}`)}>
 <div className='h-32 w-full  flex items-center justify-between px-20 bg-[#ECE4DB] rounded-md text-[#0B1016]'>
 <h4 className='w-1/2 font-bold'>{job.name} </h4>

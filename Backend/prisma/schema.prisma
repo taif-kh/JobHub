@@ -51,6 +51,8 @@ model Jobs {
   candidates JobsApps[]
   keywords String?
   company String?
+  company_location String?
+  company_jobType String?
 }
 
 model JobsApps {
