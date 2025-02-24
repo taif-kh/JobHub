@@ -29,6 +29,11 @@ const [loading, setLoading] = useState(true);
 
 const [formLoading, setFormLoading] = useState(false);
 
+
+ const [showMore0, setShowMore0 ] = useState(false);
+ const [showMore1, setShowMore1 ] = useState(false);
+
+
     // --------------------------------------------------------
 
 setTimeout(() => {
@@ -363,13 +368,138 @@ setTimeout(() => {
       {/* <Link to="/hr">HR</Link> */}
 
             </div>
-                        {/* MAIN */}
-                        <div className='h-24 w-full '></div>
 
-          </div>
-                    // USER EXISTS
+                        {/* -------------------- SHOWMORE0 -------------------- */}
+                        { !showMore0 &&  (
+  
+  <div className='h-24 w-full flex items-center justify-center gap-x-4 '>
+                            <h6 className='cursor-pointer underline underline-offset-2 ' onClick={() => setShowMore0(true)}> Show more </h6>
+                            </div>
+   )}
 
-        )}
+                        {
+                        showMore0 && jobs.slice(5, 10).map(job => (
+  <div  key={job.id} className=''>
+  <div className='h-32 w-full flex items-center  justify-between px-10  bg-[#ECE4DB] rounded-md text-[#0B1016] ' >
+
+
+
+  <div className='flex items-center justify-between  w-full'>
+  <div className='h-full py-3 flex flex-col justify-center items-start  cursor-pointer' onClick={() => navigate(`/${job.id}`)}>
+<h4 className='font-bold'>{job.name} </h4>
+<div className='h-2 w-full'></div>
+<div className='flex gap-x-1'>
+<h6 className='flex gap-x-3'>
+  {job.keywords !== null ? (
+    <>
+      {job.keywords.slice(0, 21).split(",").map((word) => (
+        <p key={word}
+        className="bg-white text-black rounded-lg flex items-center justify-center min-w-14 px-3 h-6 font-semibold"
+        >{word}</p>
+      ))}
+    </>
+  ) : (
+    "None"
+  )}
+</h6>
+</div>
+</div>
+  <h5 className='flex items-center justify-center px-2 '>Posted {job.relativeTime}</h5>
+</div>
+<div className='h-2 w-6'></div>
+
+
+  <form onSubmit={applyJob}>
+    <input type='hidden' name="userId" value={user.id} />
+    <input type='hidden' name="jobId" value={job.id} />
+{currentUser.resumeLink && (
+    <button type='submit' className={`text-2xl w-32  h-10  bg-[#1F2232] text-[#F6FAFD] rounded-md ${myApps.some(myApp => Number(myApp.jobId) === Number(job.id)) ? 'hidden' : ''}`}
+    >Apply</button>
+)}
+  </form>
+</div>
+<div className='h-3 w-full'></div>
+  </div>
+
+))}
+
+
+                        {/* -------------------- SHOWMORE0 -------------------- */}
+
+
+
+
+
+                        {/* -------------------- SHOWMORE1 -------------------- */}
+                        { showMore0 && !showMore1 && (
+  
+  <div className='h-24 w-full flex items-center justify-center gap-x-4 '>
+                            <h6 className='cursor-pointer underline underline-offset-2 ' onClick={() => setShowMore1(true)}> Show more </h6>
+                            </div>
+   )}
+
+                        {
+                        showMore1 && jobs.slice(10, 15).map(job => (
+                          <div  key={job.id} className=''>
+  <div className='h-32 w-full flex items-center  justify-between px-10  bg-[#ECE4DB] rounded-md text-[#0B1016] ' >
+
+
+
+  <div className='flex items-center justify-between  w-full'>
+  <div className='h-full py-3 flex flex-col justify-center items-start  cursor-pointer' onClick={() => navigate(`/${job.id}`)}>
+<h4 className='font-bold'>{job.name} </h4>
+<div className='h-2 w-full'></div>
+<div className='flex gap-x-1'>
+<h6 className='flex gap-x-3'>
+  {job.keywords !== null ? (
+    <>
+      {job.keywords.slice(0, 21).split(",").map((word) => (
+        <p key={word}
+        className="bg-white text-black rounded-lg flex items-center justify-center min-w-14 px-3 h-6 font-semibold"
+        >{word}</p>
+      ))}
+    </>
+  ) : (
+    "None"
+  )}
+</h6>
+</div>
+</div>
+  <h5 className='flex items-center justify-center px-2 '>Posted {job.relativeTime}</h5>
+</div>
+<div className='h-2 w-6'></div>
+
+
+  <form onSubmit={applyJob}>
+    <input type='hidden' name="userId" value={user.id} />
+    <input type='hidden' name="jobId" value={job.id} />
+{currentUser.resumeLink && (
+    <button type='submit' className={`text-2xl w-32  h-10  bg-[#1F2232] text-[#F6FAFD] rounded-md ${myApps.some(myApp => Number(myApp.jobId) === Number(job.id)) ? 'hidden' : ''}`}
+    >Apply</button>
+)}
+  </form>
+</div>
+<div className='h-3 w-full'></div>
+  </div>
+
+))}
+
+
+                        {/* -------------------- SHOWMORE1 -------------------- */}
+
+
+{
+  showMore0 && showMore1 && (
+    <div className='w-full h-24'></div>
+  )
+}
+
+                        </div>
+                    
+
+                  )}
+
+
 
         {!user && 
             <div>

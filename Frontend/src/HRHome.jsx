@@ -22,8 +22,8 @@ const HRHome = () => {
   const [extractedSkills, setExtractedSkills] = useState(""); 
 	const [selectedSkill, setSelectedSkill] = useState(""); 
   //-------------------
-
-
+ const [showMore0, setShowMore0 ] = useState(false);
+ const [showMore1, setShowMore1 ] = useState(false);
 
 
 console.log(user);
@@ -307,7 +307,7 @@ useEffect(() => {
 
 {/* All posts */}
 {
-  myJobs.length > 0 && myJobs.slice(0, 5).map((job, i) => (
+  myJobs.length > 0  && myJobs.slice(0, 5).map((job, i) => (
     <div key={i} className="cursor-pointer" onClick={() => navigate(`/${job.id}`)}>
 <div className='h-32 w-full  flex items-center justify-between px-20 bg-[#ECE4DB] rounded-md text-[#0B1016]'>
 <h4 className='w-1/2 font-bold'>{job.name} </h4>
@@ -330,14 +330,64 @@ useEffect(() => {
 
 
 
+ { !showMore0 && (
+  
+<div className='h-24 w-full flex items-center justify-center gap-x-4 '>
+                          <h6 className='cursor-pointer underline underline-offset-2 ' onClick={() => setShowMore0(true)}> Show more </h6>
+                          </div>
+ )}
 
-<div className='h-24 w-full '></div>
+                          {
+  myJobs.length > 0 && showMore0 && myJobs.slice(5, 10).map((job, i) => (
+    <div key={i} className="cursor-pointer" onClick={() => navigate(`/${job.id}`)}>
+<div className='h-32 w-full  flex items-center justify-between px-20 bg-[#ECE4DB] rounded-md text-[#0B1016]'>
+<h4 className='w-1/2 font-bold'>{job.name} </h4>
+  <h5 className='w-1/2 text-end'>Posted {job.relativeTime} </h5>
+</div>
+
+<div className='h-3 w-full'></div>
+</div>
+  ))
+}
 
 
 
 
+
+{ !showMore1 && showMore0 && (
+  
+  <div className='h-24 w-full flex items-center justify-center gap-x-4 '>
+                            <h6 className='cursor-pointer underline underline-offset-2 ' onClick={() => setShowMore1(true)}> Show more </h6>
+                            </div>
+   )}
+  
+                            {
+    myJobs.length > 0 && showMore1 && myJobs.slice(10, 15).map((job, i) => (
+      <div key={i} className="cursor-pointer" onClick={() => navigate(`/${job.id}`)}>
+  <div className='h-32 w-full  flex items-center justify-between px-20 bg-[#ECE4DB] rounded-md text-[#0B1016]'>
+  <h4 className='w-1/2 font-bold'>{job.name} </h4>
+    <h5 className='w-1/2 text-end'>Posted {job.relativeTime} </h5>
+  </div>
+  
+  <div className='h-3 w-full'></div>
+  </div>
+    ))
+  }
+
+
+
+
+
+
+
+
+{
+  showMore0 && showMore1 && (
+    <div className='w-full h-24'></div>
+  )
+}
           </div>
-                    // USER EXISTS
+
 
         )}
 
