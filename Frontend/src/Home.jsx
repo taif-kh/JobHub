@@ -132,11 +132,21 @@ setTimeout(() => {
   };
 
   //-------
-  let recJobs = jobs.filter(job => (job.name  === currentUser.predField) || (job.name  === currentUser.recJob));
-
+   let recJobs = jobs.filter(job => ( String(job.name).toLowerCase().includes( String(currentUser.predField).toLowerCase() ) ) || ( String(job.name).toLowerCase()  === String(currentUser.recJob).toLowerCase() ));
+  // let recJobs = jobs.filter(job => ( String(job.name).toLowerCase()  === String(currentUser.predField).toLowerCase() ) || ( String(job.name).toLowerCase()  === String(currentUser.recJob).toLowerCase() ));  
+  /* Job name should include the predicted field OR  jobName = recommended job
+  predField = DESIGNER
+  recJob = User Interface Designer
+ JobsTitle = UI/UX Designer
+  */
   let myApps = allApps.filter(app => Number(app.userId) === Number(user.id) );
   console.log(myApps);
-  
+ 
+  console.log("prefField" + currentUser.predField);
+
+
+
+
   return (
     <html lang="en">
       {
@@ -147,7 +157,7 @@ setTimeout(() => {
         )
       }
 { !loading && !formLoading && (
-        <body className="border-white border-2 flex flex-col px-40 font-inter bg-[#F6FAFD] text-[#1F2232] ">
+        <body className="flex flex-col px-40 font-inter bg-[#F6FAFD] text-[#1F2232] ">
         {user && (
           // USER EXISTS
           <div className="bg-[#F6FAFD] text-black">
@@ -191,7 +201,8 @@ setTimeout(() => {
 <div className='h-32 w-80 bg-[#0074E8] px-4 pt-6'>
   <h6 className='underline underline-offset-4'>Your field/</h6>
   <div className='h-1 w-full'></div>
-  <h5> { currentUser.predField === "INFORMATION-TECHNOLOGY" ? "IT" : currentUser.predField } </h5> 
+  <h5> { String(currentUser.predField).charAt(0) + String(currentUser.predField).toLowerCase().slice(1)} </h5>  
+  {/* <h5> { currentUser.predField === "INFORMATION-TECHNOLOGY" ? "IT" : currentUser.predField } </h5> */}
 </div>
 <div className='h-32 min-w-80 max-w-[500px] bg-[#0074E8] px-4 pt-6 underline-offset-4 flex-grow-0 '>
   <h6 className='underline'>Recommended post/</h6>
@@ -227,7 +238,7 @@ setTimeout(() => {
     <h6 className='flex gap-x-3'>
   {job.keywords !== null ? (
     <>
-      {job.keywords.slice(0, 21).split(",").map((word) => (
+      {job.keywords.split(",").slice(0, 3).map((word) => (
         <p key={word}
         className="bg-white text-black rounded-lg flex items-center justify-center min-w-14 px-3 h-6 font-semibold"
         >{word}</p>
@@ -328,10 +339,10 @@ setTimeout(() => {
 <h4 className='font-bold'>{job.name} </h4>
 <div className='h-2 w-full'></div>
 <div className='flex gap-x-1'>
-<h6 className='flex gap-x-3'>
+<h6 className='flex gap-x-2'>
   {job.keywords !== null ? (
     <>
-      {job.keywords.slice(0, 21).split(",").map((word) => (
+      {job.keywords.split(",").slice(0, 3).map((word) => (
         <p key={word}
         className="bg-white text-black rounded-lg flex items-center justify-center min-w-14 px-3 h-6 font-semibold"
         >{word}</p>
@@ -389,10 +400,10 @@ setTimeout(() => {
 <h4 className='font-bold'>{job.name} </h4>
 <div className='h-2 w-full'></div>
 <div className='flex gap-x-1'>
-<h6 className='flex gap-x-3'>
+<h6 className='flex gap-x-2'>
   {job.keywords !== null ? (
     <>
-      {job.keywords.slice(0, 21).split(",").map((word) => (
+      {job.keywords.split(",").slice(0, 3).map((word) => (
         <p key={word}
         className="bg-white text-black rounded-lg flex items-center justify-center min-w-14 px-3 h-6 font-semibold"
         >{word}</p>
@@ -445,15 +456,15 @@ setTimeout(() => {
 
 
 
-  <div className='flex items-center justify-between  w-full'>
-  <div className='h-full py-3 flex flex-col justify-center items-start  cursor-pointer' onClick={() => navigate(`/${job.id}`)}>
+  <div className='flex items-center justify-between  w-full '>
+  <div className='h-full py-3 flex flex-col justify-center items-start  cursor-pointer ' onClick={() => navigate(`/${job.id}`)}>
 <h4 className='font-bold'>{job.name} </h4>
 <div className='h-2 w-full'></div>
 <div className='flex gap-x-1'>
-<h6 className='flex gap-x-3'>
+<h6 className='flex gap-x-2 '>
   {job.keywords !== null ? (
     <>
-      {job.keywords.slice(0, 21).split(",").map((word) => (
+      {job.keywords.split(",").slice(0, 3).map((word) => (
         <p key={word}
         className="bg-white text-black rounded-lg flex items-center justify-center min-w-14 px-3 h-6 font-semibold"
         >{word}</p>

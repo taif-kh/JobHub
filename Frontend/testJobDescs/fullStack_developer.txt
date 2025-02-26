@@ -1,0 +1,22 @@
+As a Fullstack Developer at CodeForge Solutions, you’ll be responsible for designing, developing, and maintaining web applications from the frontend to the backend. You’ll work closely with product managers, designers, and other developers to deliver high-quality, scalable, and secure solutions.  
+
+Key Responsibilities: 
+- Develop responsive frontend interfaces using modern frameworks like React, Angular, or Vue.js. 
+- Build and maintain backend services using Node.js, Python, or Ruby on Rails. 
+- Design and manage databases (e.g., PostgreSQL, MongoDB) and optimize queries for performance. 
+- Implement RESTful APIs and GraphQL endpoints for seamless communication between frontend and backend. 
+- Collaborate with UI/UX designers to ensure a user-friendly and visually appealing experience. 
+- Write clean, maintainable, and well-documented code. 
+- Conduct code reviews and provide constructive feedback to team members. 
+- Troubleshoot and debug issues across the full stack. 
+- Stay up-to-date with the latest web development trends, tools, and technologies.  
+
+Qualifications:
+- 3+ years of experience as a Fullstack Developer or in a similar role. 
+- Proficiency in frontend technologies such as HTML, CSS, JavaScript, and modern frameworks like React or Vue.js. 
+- Strong experience with backend technologies such as Node.js, Python, Ruby on Rails, or Java. - Knowledge of database systems like PostgreSQL, MySQL, or MongoDB. 
+- Experience with RESTful APIs and GraphQL. 
+- Familiarity with version control systems like Git. 
+- Understanding of cloud platforms such as AWS, Azure, or Google Cloud. 
+- Strong problem-solving skills and attention to detail. 
+- Excellent communication and team collaboration skills.

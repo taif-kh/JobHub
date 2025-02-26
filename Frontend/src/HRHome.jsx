@@ -181,7 +181,7 @@ useEffect(() => {
 
   return (
     <html lang="en"> 
-      <body className="border-white  bg-[#F6FAFD] border-2 flex flex-col px-40 font-inter">
+      <body className="bg-[#F6FAFD] flex flex-col px-40 font-inter">
         {user && (
           // USER EXISTS
           <div className="bg-[#F6FAFD] text-[#1F2232] ">

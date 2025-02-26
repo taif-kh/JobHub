@@ -62,20 +62,22 @@ const Signup = () => {
         <div className='h-14 w-full'></div>
         <div className={`w-full flex justify-center gap-x-44 ${selectedButton !== null ? 'items-start h-32 ' : 'items-center h-40'}`}>
           <motion.button
-            className={`w-60 rounded-lg flex items-end pb-4 pl-5 ${selectedButton == "jobSeeker" ? 'bg-[#0074E8] ' : selectedButton == "employer" ? 'bg-[#0B1016]  ' : ' bg-[#0B1016] h-full pb-8'}`}
+            className={`w-60 rounded-lg flex flex-col justify-center items-center gap-y-4  ${selectedButton == "jobSeeker" ? 'bg-[#0074E8] ' : selectedButton == "employer" ? 'bg-[#0B1016]  ' : ' bg-[#0B1016] h-full '}`}
             onClick={() => setSelectedButton("jobSeeker")}
             animate={{ height: selectedButton == "employer" ||  selectedButton == "jobSeeker" ?  '4rem' : '100%' }}
             transition={{ duration: 0.75 }}
           >
-            <p className='underline text-white text-base'>I’m looking for a job</p>
+          <img src="/candidate.png" className="w-14 h-14 invert" />
+            <p className=' text-white text-base'>I’m looking for a job</p>
           </motion.button>
           <motion.button
-            className={`w-60 h-full rounded-lg flex items-end pb-4 pl-5 ${selectedButton == "employer" ? 'bg-[#0074E8] ' : selectedButton == "jobSeeker" ? 'bg-[#0B1016]  ' : ' bg-[#0B1016] h-full pb-8'}`}
+            className={`w-60 rounded-lg flex flex-col justify-center items-center gap-y-4 ${selectedButton == "employer" ? 'bg-[#0074E8] ' : selectedButton == "jobSeeker" ? 'bg-[#0B1016]  ' : ' bg-[#0B1016] h-full '}`}
             onClick={() => setSelectedButton("employer")}
             animate={{ height: selectedButton == "employer" ||  selectedButton == "jobSeeker" ?  '4rem' : '100%' }}
             transition={{ duration: 0.75 }}
           >
-            <p className='underline text-white text-base'>I’m hiring</p>
+                      <img src="/recruiter.png" className='w-14 h-14 invert' />
+            <p className=' text-white text-base'>I’m hiring</p>
           </motion.button>
         </div>
         <div className={`w-full`}></div>
