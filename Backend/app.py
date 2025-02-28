@@ -210,7 +210,7 @@ def extract_skills(description):
         'ITIL', 'Quality Assurance', 'Manual Testing', 'Automated Testing', 'Selenium', 'JUnit', 'Load Testing',
         'Performance Testing',
         'Regression Testing', 'Black Box Testing', 'White Box Testing', 'API Testing', 'Mobile Testing',
-        'Usability Testing', 'Accessibility Testing',
+        'Accessibility Testing',
         'Cross-Browser Testing', 'Agile Testing', 'User Acceptance Testing', 'Software Documentation',
         'Technical Writing', 'Copywriting',
         'Editing', 'Proofreading', 'Content Management Systems (CMS)', 'WordPress', 'Joomla', 'Drupal', 'Magento',
@@ -258,7 +258,25 @@ def extract_skills(description):
         'Vulnerability Assessment', 'Incident Response', 'Forensic Analysis', 'Security Operations Center (SOC)',
         'Identity and Access Management (IAM)', 'Single Sign-On (SSO)',
         'Multi-Factor Authentication (MFA)', 'Blockchain', 'Cryptocurrency', 'Decentralized Finance (DeFi)',
-        'Smart Contracts', 'Web3', 'Non-Fungible Tokens (NFTs)']
+        'Smart Contracts', 'Web3', 'Non-Fungible Tokens (NFTs)',   "UI design",
+  "UX design",
+  "wireframing",
+  "prototyping",
+  "high-fidelity mockups",
+  "design systems",
+  "style guides",
+  "user research",
+  "usability testing",
+  "responsive design",
+  "Figma",
+  "Sketch",
+  "Adobe XD",
+  "Photoshop",
+  "user-centered design",
+  "HTML",
+  "CSS",
+  "JavaScript"
+  ]
     extracted_skills = [skill for skill in skills_list if skill.lower() in description.lower()]
     return extracted_skills
 

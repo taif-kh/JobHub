@@ -131,9 +131,10 @@ useEffect(() => {
 		"Python",
 		"Machine Learning",
 		"Data Science",
-		"SQL",
-		"Project Management",
-		"UI/UX Design",
+		"SQL","Project Management","UI/UX Design",
+    "grid systems",
+    "user flow design",
+    "A/B testing"
 	];
 
   let debounceTimer;
@@ -160,19 +161,19 @@ useEffect(() => {
             setError(result.error); 
           }
         } catch (err) {
-          setError("Erreur de connexion avec le serveur Flask."); 
+          setError("Error connecting to the Flask Server"); 
         }
       }
     }, 500); // Delay for 500ms
   };
   
 
-	// Fonction pour ajouter la compétence sélectionnée à l'espace de texte
+	// Add extracted skills to the " extracted skills " field
 	const handleAddSkill = () => {
 		if (selectedSkill && !extractedSkills.includes(selectedSkill)) {
 			setExtractedSkills(
 				extractedSkills ? `${extractedSkills}, ${selectedSkill}` : selectedSkill
-			); // Ajouter la compétence à l'espace de texte
+			);
 		}
 	};
     //----------------------------------------------------------------
@@ -235,7 +236,7 @@ useEffect(() => {
     setJobDescription(e.target.value);
     handleSkillExtraction(e.target.value);
   }}
-  className=" w-[1056px] h-80 p-2  bg-transparent border-b-2 border-[#E7EAEF] placeholder-[#E7EAEF]"
+  className=" w-[1056px] h-80 p-2  bg-transparent border-2 border-[#E7EAEF] placeholder-[#E7EAEF] rounded-md"
   placeholder="Job's description"
 />
 <div className="h-4 w-full"></div>
@@ -259,10 +260,10 @@ useEffect(() => {
 				<div className='flex items-center bg-transparent text-[#E7EAEF]'>
         <select
 					id='skill-select'
-          className='h-10 bg-transparent text-[#E7EAEF] border-2 rounded-md border-opacity-20'
+          className='h-10 bg-transparent text-[#E7EAEF] border-2 rounded-md border-opacity-20 flex items-center justify-center px-2'
 					value={selectedSkill}
 					onChange={(e) => setSelectedSkill(e.target.value)}>
-					<option value=''>-- Select a skill --</option>
+					<option className='bg-black text-[#E7EAEF]' value=''> Select a skill </option>
 					{predefinedSkills.map((skill, index) => (
 						<option key={index} value={skill} className='bg-[#0B1016] text-[#E7EAEF]'>
 							{skill}
@@ -272,7 +273,7 @@ useEffect(() => {
         <div className='h-2 w-3'></div>
 				<button
 					type='button'
-          className='w-24 h-10 flex items-center justify-center  bg-[#ECE4DB] text-[#0B1016] text-center rounded-lg '
+          className='w-24 h-10 flex items-center justify-center  bg-[#0074E8] bg-opacity-70 text-[#ECE4DB] text-center rounded-lg text-xl'
 					onClick={handleAddSkill}
 					disabled={!selectedSkill}>
             Add
