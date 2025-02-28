@@ -258,15 +258,15 @@ return (
 <div className='w-full flex flex-col justify-between items-start gap-2'>
 <div className='flex items-center gap-x-2'>
 <IoIosTime />
- <h6 className=' '>Posted {jobDetails.relativeTime} </h6>
+ <h6 className=' '>Posted {jobDetails.relativeTime ? jobDetails.relativeTime : 'Unknown' } </h6>
 </div>
 <div className='flex items-center gap-x-2'>
 <FaLocationDot />
-<h6 className=''> {jobDetails.company_location} </h6>
+<h6 className=''> {jobDetails.company_location ? jobDetails.company_location : 'Unknown' } </h6>
 </div>
 <div className='flex items-center gap-x-2'>
 <MdWork />
-<h6 className=''> {jobDetails.company_jobType} </h6>
+<h6 className=''> {jobDetails.company_jobType ? jobDetails.company_jobType : 'Unknown' } </h6>
 </div>
 </div>
 
@@ -283,9 +283,9 @@ return (
               <div key={one}>- {one}</div>)
               )}
               <b>Qualificationss:</b>
-              {qualificationsList.map(one => (
+              {qualificationsList.length > 0 ? qualificationsList.map(one => (
               <div key={one}>- {one}</div>
-            )) }
+            )) : '- Not found' }
             </h6>
         
         

@@ -11,7 +11,7 @@ Key Responsibilities:
 - Troubleshoot and debug issues across the full stack. 
 - Stay up-to-date with the latest web development trends, tools, and technologies.  
 
-Qualifications:
+Qualifications: 
 - 3+ years of experience as a Fullstack Developer or in a similar role. 
 - Proficiency in frontend technologies such as HTML, CSS, JavaScript, and modern frameworks like React or Vue.js. 
 - Strong experience with backend technologies such as Node.js, Python, Ruby on Rails, or Java. - Knowledge of database systems like PostgreSQL, MySQL, or MongoDB. 
