@@ -5,11 +5,13 @@ import { Link, useParams } from 'react-router-dom';
 
 import { UserContext } from './UserContext';
 
+// ------------
+import { IoIosTime } from "react-icons/io";
+import { FaLocationDot } from "react-icons/fa6";
+import { MdWork } from "react-icons/md";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
-
-
-
-
+// ------------
 
 
 const AppDetails = () => {
@@ -34,14 +36,12 @@ const AppDetails = () => {
   
 
 
-
+// THIS JOB DETAILS
   useEffect(() => {
     axios.get(`http://localhost:3000/jobs/${appId}`).then((response) => {
       setJobDetails(response.data);
-      // setJobDetails(jobDetails.map(d => d.poster === Number(d.poster)));
-      // setJobDetails.map(job => job.poster === Number(job.poster));
       console.log(response.data);
-    }); // THIS JOB DETAILS
+    }); 
 
 
     // CANDIDATES
@@ -99,8 +99,8 @@ const AppDetails = () => {
 
   //----------------------------------------------------------------
   const handleScoring = async (e) => {
-    e.preventDefault(); // Empêcher le rechargement de la page
-    setLoading(true); // Démarrer le chargement
+    e.preventDefault();
+    setLoading(true); 
 
     try {
       const response = await fetch("http://127.0.0.1:5000/matching-resumes", {
@@ -111,73 +111,185 @@ const AppDetails = () => {
         body: JSON.stringify({ description: jobDetails.description, resumes }),
       });
 
-      const result = await response.json(); // Récupérer la réponse JSON
-      console.log(result); // Afficher la réponse dans la console pour inspecter les données
+      const result = await response.json(); 
+      console.log(result); 
 
       if (response.ok) {
-        // Si la réponse est correcte, mettre à jour les scores de matching
         const transformedScores =
           result.scores?.map((score, index) => ({
-            filename: result.filenames?.[index] || `Fichier ${index + 1}`, // Dynamique ou par défaut
-            score: score || 0, // Ajouter une valeur par défaut pour le score
+            filename: result.filenames?.[index] || `Fichier ${index + 1}`, 
+            score: score || 0, 
           })) || [];
 
         setMatchingScores(transformedScores);
-        setError(""); // Réinitialiser les erreurs
+        setError(""); 
       } else {
         setError(result.error || "Une erreur est survenue lors du traitement.");
       }
-      // eslint-disable-next-line no-unused-vars
     } catch (err) {
-      setError("Erreur de connexion avec le serveur Flask."); // Erreur de connexion
+      setError("Erreur de connexion avec le serveur Flask."); 
     } finally {
-      setLoading(false); // Arrêter le chargement
+      setLoading(false); 
     }
   };
 
-  
-
-   //------------------- Divising the jobDescription ----------------
-
-  
-
-  //------------------- Divising the jobDescription ----------------
 
 
+//---------------------- BeforeJobDesc ---------------------------------------------------------------------------------
+
+function extractBeforeKeyResponsibilities(jobDesc) {
+  // Regex to match everything before "Key Responsibilities"
+  const match = jobDesc.match(/(.*?)(?=\s*Key Responsibilities:)/s);
+
+  return match ? match[1].trim() : "Not found";
+}
+
+const jobDesc = String(jobDetails.description);
+
+console.log(extractBeforeKeyResponsibilities(jobDesc));
+let beforeKeyResponsibilities = extractBeforeKeyResponsibilities(jobDesc);
+
+//---------- extract part between Key Responsibilities and Qualifications --------
+
+function extractResponsibilities(jobDesc) {
+  // Regex to extract the content between "Key Responsibilities" and "Qualifications"
+  const match = jobDesc.match(/(?<=Key Responsibilities:)(.*?)(?=Qualifications:)/s);
+
+  return match ? match[1].trim() : "Not found";
+}
 
 
-    return (
-        <body className="border-white border-2 flex flex-col px-40 font-inter bg-[#ECE4DB] overflow-hidden min-w-screen min-h-screen">
-          <div className="bg-[#ECE4DB] text-black ">
-                    {/* token */}
-            <div className='text-xs h-9'>
-            </div>
-                    {/* token */}
+console.log(extractResponsibilities(jobDesc));
+
+let keyResponsibilities = extractResponsibilities(jobDesc);
 
 
-{/* Welcome */}
-<div className='flex justify-between items-end h-11 '>
+// ---------------- Responsibilities' formatted points  --------------------------------------
+
+function formatResponsibilities(jobDesc) {
+  // Split the responsibilities by "- ", trim each item, and filter out empty strings
+  return jobDesc
+    .split("- ")
+    .map(item => item.trim())
+    .filter(item => item !== ""); // Remove empty items
+}
+
+
+
+let responsibilitiesList = formatResponsibilities(keyResponsibilities);
+
+console.log(responsibilitiesList);
+
+
+// ------------------------------Qualifications' formatted points ------------------------------------------
+
+function extractQualifications(jobDesc) {
+  // Regex to extract the content between "Qualifications" and the end of the description
+  const match = jobDesc.match(/(?<=Qualifications:)(.*)$/s);
+
+  if (match) {
+    const qualificationsText = match[1];
+
+    const qualificationsList = qualificationsText
+      .split("- ")
+      .map(item => item.trim())
+      .filter(item => item !== ""); 
+    return qualificationsList;
+  }
+
+  return []; // Return empty list if not found
+}
+
+const qualificationsList = extractQualifications(jobDesc);
+
+console.log(qualificationsList);
+
+//------------------------------------------
+
+
+
+function formatText(text) {
+  return text
+    .split(". ") // Split at each period followed by a space
+    .filter(sentence => sentence.trim() !== "") // Remove empty strings
+    .map(sentence => sentence.trim() + ".") // Add the period back
+    .join("\n"); // Join with a new line
+}
+
+
+beforeKeyResponsibilities = formatText(beforeKeyResponsibilities);
+
+
+
+
+
+
+return (
+  <body className=" flex flex-col px-20 font-inter bg-[#ECE4DB] overflow-hidden min-w-screen min-h-screen">
+    <div className="bg-[#ECE4DB] text-black">
+      <div className="text-xs h-6 "></div>
+
+      {/* Welcome */}
+      {/* Welcome */}
+
+      {/* ------------------------------------------------------ */}
+      {/* MAIN */}
+      <div className="">
+        <div className="h-14 w-full flex items-end justify-end  ">
+          <Link to={currentUser.isHr ? "/hr" : "/candidate"} className="w-24 h-9 rounded-2xl border-2 border-black flex items-center justify-center gap-x-1 ">
+            <h6>Back</h6>
+            <img src="left.png" className={`rotate-180 w-4 h-5 `} />
+          </Link>
+        </div>
+
+        {/* job's details */}
+        <div className="flex flex-col items-start justify-center min-h-80 rounded-md bg-[#ECE4DB] ">
+          <div className="h-full  w-full">
+          <h2 className="font-bold">{jobDetails.name}</h2>
+          <div className='w-full h-2'></div>
+          <div className='flex w-full gap-x-2'>
+<h6 className='font-bold'>Posted by: </h6>
+  {/* <h6>{jobDetails.poster.fullName || ''} </h6>  */}
+ <h6> {jobDetails.company || 'Unknown'} </h6>
 </div>
-{/* Welcome */}
+<div className='w-full h-4'></div>
 
 
-            {/* ------------------------------------------------------ */}
-            {/* MAIN */}
-            <div className=''>
-<div className='h-14 w-full flex items-center justify-end px-7 '>
-  <div className='w-24 h-9 rounded-2xl border-2 border-black flex items-center justify-center gap-x-1'>
-    <Link to={currentUser.isHr ? '/hr' : '/candidate'}>Back</Link> 
-    <img src='left.png' className='rotate-180 w-4 h-5 '  />
-    </div>
+<div className='w-full flex flex-col justify-between items-start gap-2'>
+<div className='flex items-center gap-x-2'>
+<IoIosTime />
+ <h6 className=' '>Posted {jobDetails.relativeTime} </h6>
+</div>
+<div className='flex items-center gap-x-2'>
+<FaLocationDot />
+<h6 className=''> {jobDetails.company_location} </h6>
+</div>
+<div className='flex items-center gap-x-2'>
+<MdWork />
+<h6 className=''> {jobDetails.company_jobType} </h6>
+</div>
 </div>
 
-{/* job's details */}
-<div className='flex flex-col items-start justify-center min-h-80 rounded-md bg-[#ECE4DB] '>
-<div className='h-full  py-6 w-full'>
-<h2 className='font-bold'> {jobDetails.name} </h2>
-<div className='h-2 w-full'></div>
-<h6> {jobDetails.description} </h6>
-<div className='h-5 w-full'></div>
+
+            <div className="h-4 w-full"></div>
+            {/* <h6>{jobDetails.description}</h6>        min-h-80 */}
+            {/* <h6>{jobDetails.description}</h6> */}
+            <h6 className='flex flex-col gap-y-2'>
+            <h6 className='flex flex-col gap-y-1'> 
+              {beforeKeyResponsibilities}
+              </h6>
+              <b>Key Responsibilities:</b>
+              {responsibilitiesList.map(one => (
+              <div key={one}>- {one}</div>)
+              )}
+              <b>Qualificationss:</b>
+              {qualificationsList.map(one => (
+              <div key={one}>- {one}</div>
+            )) }
+            </h6>
+        
+        
+<div className='h-8 w-full'></div>
 <div className='gap-x-1'>
 <h6 className="flex gap-x-3">
   {jobDetails?.keywords
@@ -194,24 +306,23 @@ const AppDetails = () => {
 
 </div>
 <div className='h-5 w-full'></div>
-<div className='flex gap-x-1'>
-<h6 className='font-bold'>Posted by:</h6>
-  {/* <h6>{jobDetails.poster.fullName || ''} </h6>  */}
- <h6> {jobDetails.company || 'None'} </h6>
-</div>
+
+
 </div>
 
-<div className='flex items-center justify-between w-full px-7 py-6' >
+<div className='flex items-center justify-center w-full sticky bottom-0' >
 <form onSubmit={applyJob} className=''>
         <input type='hidden' name="userId" value={currentUser.id} />
         <input type='hidden' name="jobId" value={appId} />
   {currentUser.resumeLink && (
-          <button type='submit' className={`text-2xl w-32  h-10  bg-[#1F2232] text-[#F6FAFD] rounded-md  ${myApps.some(myApp => Number(myApp.jobId) === Number(appId)) ? 'hidden' : ''}`}
-          >Apply</button>
+          <button type='submit' className={`hover:bg-blue-600 flex  items-center justify-center  w-48 h-12  bg-[#1F2232] text-[#F6FAFD] rounded-3xl  fixed bottom-5 left-1/2 transform -translate-x-1/2  ${myApps.some(myApp => Number(myApp.jobId) === Number(appId)) ? 'hidden' : ''}`}
+          >
+            <p className='text-2xl'>Apply</p>
+            {/* <FaExternalLinkAlt className='w-4 h-4' /> */}
+          </button>
   )}
       </form>
 
-<h6 className='text-end w-full'>Posted {jobDetails.relativeTime} </h6>
 </div>
 
 </div>
