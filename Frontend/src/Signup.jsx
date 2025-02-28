@@ -67,7 +67,9 @@ const Signup = () => {
             animate={{ height: selectedButton == "employer" ||  selectedButton == "jobSeeker" ?  '4rem' : '100%' }}
             transition={{ duration: 0.75 }}
           >
-          <img src="/candidate.png" className="w-14 h-14 invert" />
+{!selectedButton && (
+            <img src="/candidate.png" className="w-14 h-14 invert" />
+)}
             <p className=' text-white text-base'>I’m looking for a job</p>
           </motion.button>
           <motion.button
@@ -76,7 +78,10 @@ const Signup = () => {
             animate={{ height: selectedButton == "employer" ||  selectedButton == "jobSeeker" ?  '4rem' : '100%' }}
             transition={{ duration: 0.75 }}
           >
-                      <img src="/recruiter.png" className='w-14 h-14 invert' />
+{!selectedButton && (
+                        <img src="/recruiter.png" className='w-14 h-14 invert' />
+
+) }
             <p className=' text-white text-base'>I’m hiring</p>
           </motion.button>
         </div>

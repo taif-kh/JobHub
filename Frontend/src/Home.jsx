@@ -199,15 +199,16 @@ setTimeout(() => {
   currentUser.predField ?  (
     <div className='flex gap-x-5 text-white '>
 <div className='h-32 w-80 bg-[#0074E8] px-4 pt-6'>
-  <h6 className='underline underline-offset-4'>Your field/</h6>
-  <div className='h-1 w-full'></div>
-  <h5> { String(currentUser.predField).charAt(0) + String(currentUser.predField).toLowerCase().slice(1)} </h5>  
+  {/* <h6 className='underline underline-offset-4'>Your field/</h6> */}
+  <h6 className=''>Predicted field:</h6>
+  {/* <div className='h-1 w-full'></div> */}
+  <h3 className='font-semibold'> { String(currentUser.predField).charAt(0) + String(currentUser.predField).toLowerCase().slice(1)} </h3>  
   {/* <h5> { currentUser.predField === "INFORMATION-TECHNOLOGY" ? "IT" : currentUser.predField } </h5> */}
 </div>
-<div className='h-32 min-w-80 max-w-[500px] bg-[#0074E8] px-4 pt-6 underline-offset-4 flex-grow-0 '>
-  <h6 className='underline'>Recommended post/</h6>
+<div className='h-32 min-w-[432px] max-w-[650px] bg-[#0074E8] px-4 pt-6 flex-grow-0 '>
+  <h6 className=''>Recommended post:</h6>
   <div className='h-1 w-full'></div>
-  <h5> {currentUser.recJob} </h5>
+  <h3 className='font-semibold'> {currentUser.recJob} </h3>
 </div>
 </div>
   ) : ''
