@@ -114,9 +114,9 @@ setTimeout(() => {
   }, [user?.id]); 
 
 
-  const applyJob = async(e) => {
-    e.preventDefault();
-
+  const applyJob = async (e) => {
+    e.preventDefault(); 
+  
     const formData = new FormData(e.target);
     try {
       await axios.post('http://localhost:3000/users/apply', formData, {
@@ -124,7 +124,15 @@ setTimeout(() => {
           'Content-Type': 'application/json',
         },
       });
-      window.location.reload();
+  
+      // Hide the "Apply" button after successful submission
+      const applyButton = e.target.querySelector('button[type="submit"]');
+      if (applyButton) {
+        applyButton.classList.add('hidden');
+      }
+  
+      // show a success message
+      alert("Application submitted successfully!");
     } catch (error) {
       console.error('Error applying for job:', error);
       alert('Failed to apply for the job.');
@@ -261,8 +269,13 @@ setTimeout(() => {
       <form onSubmit={applyJob}>
         <input type='hidden' name="userId" value={user.id} />
         <input type='hidden' name="jobId" value={job.id} />
-      <button type='submit' className={`text-2xl w-32  h-10  bg-[#1F2232] text-[#F6FAFD] rounded-md   ${myApps.some(myApp => Number(myApp.jobId) === Number(job.id)) ? 'hidden' : ''}`}
-        >Apply</button>
+        <button
+    type='submit'
+    className={`text-2xl w-32 h-10 bg-[#1F2232] text-[#F6FAFD] rounded-md ${
+      myApps.some((myApp) => Number(myApp.jobId) === Number(job.id)) ? 'hidden' : ''
+    }`}
+  >        
+  Apply</button>
       </form>
     </div>
     <div className='h-3 w-full'></div>
